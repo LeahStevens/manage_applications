@@ -15,7 +15,7 @@ gem 'bcrypt'
 
 
 group :production do
-  gem 'rails_12factor', require true
+  gem 'rails_12factor'
 end
 
 group :doc do
