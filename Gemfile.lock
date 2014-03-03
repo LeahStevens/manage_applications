@@ -125,7 +125,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)
