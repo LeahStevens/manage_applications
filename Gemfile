@@ -11,6 +11,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'pg'
+gem 'haml-rails'
+
 
 group :production do
   gem 'rails_12factor'
@@ -20,11 +22,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+source 'https://rubygems.org'
+
 
 
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.2'
+# gem 'bcrypt'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -34,3 +38,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+
