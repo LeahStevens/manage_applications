@@ -12,7 +12,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'bcrypt'
-gem 'rails_12factor', group: :production
+
+
+group :production do
+  gem 'rails_12factor', require true
+end
 
 group :doc do
   gem 'sdoc', require: false
