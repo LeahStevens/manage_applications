@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
+gem 'bcrypt'
 gem 'rails_12factor', group: :production
 
 group :doc do
