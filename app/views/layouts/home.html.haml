@@ -1,0 +1,7 @@
+= render :template => "layouts/application"
+- if user_signed_in?
+  = render :template => "home/projects"
+- else
+  = render :template => "home/landing"
+= flash.notice
+= flash.alert

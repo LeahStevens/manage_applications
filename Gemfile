@@ -12,7 +12,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'pg'
 gem 'haml-rails'
-
+gem 'erb2haml'
+gem 'foundation-rails'
 
 group :production do
   gem 'rails_12factor'

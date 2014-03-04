@@ -9,5 +9,13 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require foundation
+
  *= require_tree .
  */
+
+.navLoggedInAs{
+  color: grey;
+  margin-top: 20px;
+  font-size: 14px;
+}

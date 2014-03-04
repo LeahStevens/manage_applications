@@ -1,0 +1,29 @@
+%nav.top-bar{"data-topbar" => ""}
+  %ul.title-area
+    %li.name
+      %h1
+        %a{href: "/"}
+          Manage Your Projects!
+  %section.top-bar-section
+    %ul.right
+      %li.navLoggedInAs
+        - if user_signed_in?
+          Logged in as
+          = succeed "." do
+            %strong= current_user.email
+        - else
+      %li
+        - if user_signed_in?
+          = link_to 'Edit profile', edit_user_registration_path
+        - else
+          = link_to "Sign up", new_user_registration_path
+        = flash.notice
+        = flash.alert
+      %li
+        - if user_signed_in?
+          = link_to "Logout", destroy_user_session_path, method: :delete
+        - else
+          = link_to "Login", new_user_session_path
+        = flash.notice
+        = flash.alert
+
