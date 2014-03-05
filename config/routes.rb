@@ -3,11 +3,20 @@ ManageApplications::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
   devise_for :users
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root 'welcome#index's
   root :to => "home#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+
+
+# What is wrong with this?
+  # get 'projects#completed_list'
+  # get 'projects#current_list'
+  # get 'projects#edit'
+  # get 'projects#new'
+  # get 'projects/:id' => 'projects#project'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
