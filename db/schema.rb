@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140402223119) do
     t.string   "description"
     t.string   "icon"
     t.integer  "user_id"
+    t.boolean  "completed",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

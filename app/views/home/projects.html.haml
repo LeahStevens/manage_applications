@@ -1,4 +1,5 @@
-%p You can view current/completed projects, or start a new one.
-%a{url:'current_list'} Current
-%a{url:'completed_list'} Completed
-%a{url:'new'} Create New
+%p.projectHomeBlurb You can view current/completed projects, or start a new one.
+%div.projectHomeLinks
+  = link_to "Current", projects_current_path
+  = link_to "Completed", projects_completed_path
+  = link_to "Create New", projects_new_path

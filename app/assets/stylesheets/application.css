@@ -101,3 +101,31 @@ body.landing{
   margin-left: 400px;
 }
 
+/*------------------------Projects Home--------------------------*/
+
+.projectHomeBlurb{
+  margin-left: 200px;
+  margin-top: 150px;
+}
+
+.projectHomeLinks{
+  margin-top: 330px;
+  margin-left: 200px;
+  font-size: 30px;
+}
+.projectHomeLinks>a{padding-left: 15px; color: white;}
+/*------------------------New Projects----------------------------*/
+
+.projectNew{
+  background-color: #888;
+  width: 300px;
+  margin-top: 75px;
+  margin-left: 250px;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+.projectNew>h2{color: white;}
+
+

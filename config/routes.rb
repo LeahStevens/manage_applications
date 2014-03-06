@@ -10,19 +10,25 @@ ManageApplications::Application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
 
-# What is wrong with this?
-  # get 'projects#completed_list'
-  # get 'projects#current_list'
-  # get 'projects#edit'
-  # get 'projects#new'
-  # get 'projects/:id' => 'projects#project'
+  get 'projects/completed', to:'projects#completed'
+  get 'projects/current', to:'projects#current'
 
+  get 'projects/new', to:'projects#new'
+  post 'projects', to:'projects#create'
+  get 'projects/:id', to:'projects#show'
+
+  get 'projects/:id/edit', to:'projects#edit'
+  put 'projects/:id', to:'projects#update'
+  delete 'projects/:id', to:'projects#destroy'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  resources :projects
+
 
   # Example resource route with options:
   #   resources :products do

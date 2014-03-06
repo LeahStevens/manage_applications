@@ -7,7 +7,4 @@ class HomeController < ActionController::Base
 
   end
 
-  def landing
-
-  end
 end

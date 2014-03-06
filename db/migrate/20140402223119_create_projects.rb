@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :description
       t.string :icon
       t.integer :user_id
+      t.boolean :completed, :default => false
 
       t.timestamps
     end
