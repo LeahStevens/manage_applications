@@ -15,7 +15,7 @@ class ProjectsController < ActionController::Base
       @project = Project.find(params[:id])
     # else
     # redirect_to (:back)
-    end
+    # end
   end
 
   def completed
