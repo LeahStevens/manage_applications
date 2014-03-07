@@ -1,2 +1,12 @@
-%p Project details
-= @project.name
+%div.projectShow
+  %h4
+    = @project.name
+  %p
+    = @project.description
+  %p= link_to 'Edit', @project, method: :edit
+  %p= link_to 'Details'
+  %p add Details app (then attach to mongoDB, and style to be hidden, cept on click)
+  / %img
+  /   = @project.icon
+  / %h6
+  /   = @project.completed
