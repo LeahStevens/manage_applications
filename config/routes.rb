@@ -17,10 +17,12 @@ ManageApplications::Application.routes.draw do
   post 'projects', to:'projects#create'
   get 'projects/:id', to:'projects#show'
 
-  get 'projects/:id/edit', to:'projects#edit'
-  put 'projects/:id', to:'projects#update'
+  post 'projects/:id', to:'projects#edit'
+  patch 'projects', to:'projects#update'
   delete 'projects/:id', to:'projects#destroy'
 
+  # get 'projects', to:'projects#filter'
+  # get 'projects', to:'home#filter'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

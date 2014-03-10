@@ -1,12 +1,22 @@
+%section#sidebar
+  = render partial: "layouts/sidebar"
 %div.projectShow
   %h4
     = @project.name
+  %div.projectShowStatus
+    %h6
+    -if @project.completed = true
+      Completed
+    -else
+      Current
+  %div.projectShowLinks
+    %div.link= link_to 'Details'
+    %div.link= link_to 'Edit', @project, method: :edit
+    %div.link= link_to 'Delete', @project, method: :delete, |
+                          data: { confirm: 'Are you sure?' }        |
   %p
     = @project.description
-  %p= link_to 'Edit', @project, method: :edit
-  %p= link_to 'Details'
   %p add Details app (then attach to mongoDB, and style to be hidden, cept on click)
   / %img
   /   = @project.icon
-  / %h6
-  /   = @project.completed
+

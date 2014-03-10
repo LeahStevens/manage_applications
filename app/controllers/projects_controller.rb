@@ -1,41 +1,62 @@
 class ProjectsController < ActionController::Base
 
   before_action :require_login
+  around_filter :catch_not_found
+
 
   def index
-    @projects = Project.all
+    @projects = Project.order(updated_at: :desc).find(:all,
+                            :conditions => {:user_id => current_user.id})
   end
 
   def new
+    @projects = Project.order(updated_at: :desc).find(:all,
+                            :conditions => {:user_id => current_user.id})
     @project = Project.new
   end
 
+
   def show
-    # if
-      @project = Project.find(params[:id])
-    # else
-    # redirect_to (:back)
-    # end
+    @projects = Project.order(updated_at: :desc).find(:all,
+                            :conditions => {:user_id => current_user.id})
+    @project = Project.find(params[:id])
   end
 
   def completed
-    @projects = Project.find(:all,
+    @projects = Project.order(updated_at: :desc).find(:all,
                               :conditions => {:completed => true, :user_id => current_user.id})
     # Where completed = true
   end
 
   def current
-      @projects = Project.find(:all,
+    @projects = Project.order(updated_at: :desc).find(:all,
                               :conditions => {:completed => false, :user_id => current_user.id})
     # Where completed = false
   end
 
-  def edit
+  # def filter
+  #   @projects = Project.find(:all,
+  #                             :conditions => {:user_id => current_user.id})
 
+  # end
+
+  def edit
+    @projects = Project.order(updated_at: :desc).find(:all,
+                            :conditions => {:user_id => current_user.id})
+    @project = Project.find(params[:id])
+    # @project = Project.update
   end
 
   def update
+    @projects = Project.order(updated_at: :desc).find(:all,
+                            :conditions => {:user_id => current_user.id})
 
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to(:back)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -69,6 +90,12 @@ private
     if !user_signed_in?
       redirect_to root_url
     end
+  end
+
+  def catch_not_found
+    yield
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url, :flash => { :error => "Record not found." }
   end
 
 end

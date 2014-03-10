@@ -1,1 +1,27 @@
-%p Edit Project
+%section#sidebar
+  = render partial: "layouts/sidebar"
+%div.projectEdit
+  %h2 Edit Project
+  = form_for @project, url: {action: "update"}, html: {class: "project_form"} do |f|
+    %div
+      = f.label :name
+      %br/
+      = f.text_field :name, :autofocus => true, :autocomplete => "off"
+    %div
+      = f.label :description
+      %br/
+      = f.text_area :description, size: "60x12", :autocomplete => "off"
+    / %div
+    /   = f.label :icon
+    /   %br/
+    /   = f.text_field :icon, :autocomplete => "off"
+    %div
+      = f.label "Completed"
+      %br/
+      = f.radio_button :completed, "true", id: 'complete'
+    %div
+      = f.label "Current"
+      %br/
+      = f.radio_button :completed, "false", id: 'current'
+
+    %div= f.submit "Update"

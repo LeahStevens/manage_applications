@@ -1,0 +1,24 @@
+%div.sidebar
+  %h4 Last Updated:
+
+  / = form_for @projects, url: {action: "filter"}, html: {class: "project_form"} do |f|
+  /   %div
+  /     = f.label "Completed"
+  /     %br/
+  /     = f.radio_button :completed, "true", id: 'complete'
+  /   %div
+  /     = f.label "Current"
+  /     %br/
+  /     = f.radio_button :completed, "false", id: 'current'
+  /   %div= f.submit "Filter"
+
+
+  %div.sidebarItems
+    - @projects.each do |project|
+      %div.sidebarItem
+        %h4= project.name
+        %div.link= link_to 'Show', project
+        %div.link= link_to 'Delete', project, method: :delete, |
+          data: { confirm: 'Are you sure?' }        |
+  %div.sidebarCreateNew
+    = link_to "Create New", projects_new_path
