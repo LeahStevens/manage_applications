@@ -13,6 +13,7 @@ class ProjectsController < ActionController::Base
     @projects = Project.order(updated_at: :desc).find(:all,
                             :conditions => {:user_id => current_user.id})
     @project = Project.new
+    @step = Step.new
   end
 
 
@@ -77,13 +78,28 @@ class ProjectsController < ActionController::Base
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+  end
 
+  def step
+    @step = Step.new(step_params)
+    respond_to do |format|
+      @step.project_id = current_project.id
+      if @step.save
+        redirect_to (:back)
+      else
+
+      end
+    end
   end
 
 private
 
   def project_params
     params.require(:project).permit(:name, :description, :icon, :user_id, :completed)
+  end
+
+  def step_params
+    params.require(:step).permit(:name, :checked, :project_id)
   end
 
   def require_login

@@ -23,13 +23,16 @@ ManageApplications::Application.routes.draw do
 
   # get 'projects', to:'projects#filter'
   # get 'projects', to:'home#filter'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :projects
+  resources :projects do
+    resources :steps
+  end
 
 
   # Example resource route with options:
