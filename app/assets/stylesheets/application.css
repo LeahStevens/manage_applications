@@ -97,19 +97,25 @@ form{
   overflow-x: hidden;
   z-index: 1;
 }
+.sidebar>h4{
+  color: black;
+/*  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Tangerine', cursive;*/
+}
 
 .sidebarItem{
   background-color: white;
-
   border-radius: 15px;
   border-color: #333;
   border-style: solid;
-  border-width: 3px;
+  border-width: 1px;
   margin-top: 15px;
+  box-shadow: 10px 10px 5px #666;
 }
 .sidebarItem>h4{
-  color:black;
-  font-size: 24px;
+  color: #444;
+  font-size: 16px;
   text-align: center;
 }
 .sidebarItem>p{
@@ -182,6 +188,20 @@ body.landing{
 }
 .projectNew>h2{color: white;}
 
+/*------------------------New steps----------------------------*/
+
+.stepsNew{
+  background-color: #888;
+  width: 300px;
+  margin-top: 100px;
+  margin-left: 400px;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+.stepsNew>h2{color: white;}
+
 
 /*-----------------------Show Project--------------------------*/
 
@@ -199,11 +219,12 @@ body.landing{
   overflow-x: hidden;
 }
 
-/*.projectShow>h4{
+.projectShow>h4{
+  color: white;
   font-size: 42px;
-  font-family: 'Dawning of a New Day', cursive;
-  font-weight: bold;
-}*/
+  font-family: 'Tangerine', cursive;
+}
+.projectShow>p{color: #555}
 
 .projectShowStatus{
 }
@@ -234,6 +255,29 @@ body.landing{
   overflow: auto;
   overflow-x: hidden;
 }
+.white{color: white;
+
+  font-family: 'Tangerine', cursive;
+  font-size: 95px;
+  text-align: center;
+}
+
+.projectListing{
+  color: #333;
+  width: 500px;
+  margin-top: 25px;
+
+  font-size: 20px;
+}
+.descriptionListing{color: #555;}
+
+.nameListing{
+  font-family: 'Tangerine', cursive;
+  font-size: 45px;}
+
+.linkListing>a{
+  color: white;
+  font-size: 14px;}
 
 /*---------------------Completed Projects-----------------------*/
 
@@ -272,10 +316,7 @@ body.landing{
 
 /*---------------------Scroll Bar----------------------*/
 
-/*.flexcroll{ width:400px;
-            height:200px;
-            overflow:scroll;
-           }*/
+
 .scrollbar{
     scrollbar-face-color: #367CD2;
     scrollbar-shadow-color: #FFFFFF;
@@ -302,7 +343,7 @@ body.landing{
 .scrollbar::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: #666;
+    background: #555;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 

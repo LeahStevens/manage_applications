@@ -17,11 +17,6 @@
     /   = f.text_field :icon, :autocomplete => "off"
     %div= f.submit "Create"
 
-  %div.projectNewDetails
-    %h2 Step List
-    = form_for @step, url: {action: "create"}, html: {class: "step_form"} do |f|
-      %div
-        = f.label :name
-        %br/
-        = f.text_field :name, :autofocus => true, :autocomplete => "off"
-      %div= f.submit "Add Step"
+
+
+

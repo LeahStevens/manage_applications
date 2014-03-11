@@ -1,22 +1,33 @@
 %section#sidebar
   = render partial: "layouts/sidebar"
-%div.projectShow
+%div.projectShow.scrollbar
   %h4
     = @project.name
   %div.projectShowStatus
     %h6
-    -if @project.completed = true
-      Completed
-    -else
-      Current
   %div.projectShowLinks
-    %div.link= link_to 'Details'
+    / %div.link= link_to 'Steps', steps_new_path
     %div.link= link_to 'Edit', @project, method: :edit
     %div.link= link_to 'Delete', @project, method: :delete, |
                           data: { confirm: 'Are you sure?' }        |
   %p
     = @project.description
-  %p add Details app (then attach to mongoDB, and style to be hidden, cept on click)
-  / %img
-  /   = @project.icon
 
+
+
+  %div.projectNewDetails
+    %h4 Step List
+    #section
+      .row
+        .small-9.columns
+          %input#step{type: 'text', placeholder: 'Step'}
+        .small-3.columns
+          %input#detailsButton.button.tiny.round{type: 'button', value: "Add to List"}
+      .row
+        .small-9.columns
+          #section
+            %table
+              %th Steps
+              %th Done?
+        .small-3.columns
+          %input#submitSteps.button.tiny.round{type: 'button', value: 'Save Steps'}

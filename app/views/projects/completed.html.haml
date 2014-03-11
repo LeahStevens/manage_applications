@@ -1,19 +1,19 @@
 %div.currentProjectsListing.scrollbar
-  %h2 Completed Projects
-  %table
-    %tr
-      %th Name
-      %th Description
-      %th
-      %th
-      %th
-    - @projects.each do |project|
-      %tr
-        %td= project.name
-        %td= project.description
-        %td= link_to 'Show', project
-        / %td= link_to 'Edit', project, method: :edit
-        %td= link_to 'Destroy', project, method: :delete, |
-            data: { confirm: 'Are you sure?' }        |
+  %h2.white Completed Projects
+  - @projects.each do |project|
+    %div.projectListing
+      .row
+        .small-12.columns
+          %div.nameListing= project.name
+      .row
+        .small-12.columns
+          %div.descriptionListing= project.description
+      .row
+        .small-1.columns
+          %div.linkListing= link_to 'Show', project
+        .small-1.columns
+          %div.linkListing= link_to 'Delete', project, method: :delete, |
+              data: { confirm: 'Are you sure?' }        |
+        .small-10.columns
   %br/
   = link_to "Create New", projects_new_path

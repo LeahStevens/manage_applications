@@ -21,8 +21,11 @@ ManageApplications::Application.routes.draw do
   patch 'projects', to:'projects#update'
   delete 'projects/:id', to:'projects#destroy'
 
-  # get 'projects', to:'projects#filter'
-  # get 'projects', to:'home#filter'
+  post 'projects/:id', to:'projects#add'
+
+  get 'steps/new', to: 'steps#new'
+  post 'steps', to:'steps#create'
+  delete 'steps/:id', to: 'steps#destroy'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

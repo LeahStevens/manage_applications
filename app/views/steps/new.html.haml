@@ -1,0 +1,11 @@
+%section#sidebar
+  = render partial: "layouts/sidebar"
+
+
+%div.stepsNew
+  = form_for @step, url: {action: "create"}, html: {class: "step_form"} do |f|
+    %div
+      = f.label :name
+      %br/
+      = f.text_field :name
+    %div= f.submit "Add Step"

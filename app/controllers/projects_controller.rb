@@ -3,7 +3,6 @@ class ProjectsController < ActionController::Base
   before_action :require_login
   around_filter :catch_not_found
 
-
   def index
     @projects = Project.order(updated_at: :desc).find(:all,
                             :conditions => {:user_id => current_user.id})
@@ -13,9 +12,7 @@ class ProjectsController < ActionController::Base
     @projects = Project.order(updated_at: :desc).find(:all,
                             :conditions => {:user_id => current_user.id})
     @project = Project.new
-    @step = Step.new
   end
-
 
   def show
     @projects = Project.order(updated_at: :desc).find(:all,
@@ -45,13 +42,12 @@ class ProjectsController < ActionController::Base
     @projects = Project.order(updated_at: :desc).find(:all,
                             :conditions => {:user_id => current_user.id})
     @project = Project.find(params[:id])
-    # @project = Project.update
+
   end
 
   def update
     @projects = Project.order(updated_at: :desc).find(:all,
                             :conditions => {:user_id => current_user.id})
-
     @project = Project.find(params[:id])
     if @project.update(project_params)
       redirect_to(:back)
@@ -80,26 +76,10 @@ class ProjectsController < ActionController::Base
     end
   end
 
-  def step
-    @step = Step.new(step_params)
-    respond_to do |format|
-      @step.project_id = current_project.id
-      if @step.save
-        redirect_to (:back)
-      else
-
-      end
-    end
-  end
-
 private
 
   def project_params
     params.require(:project).permit(:name, :description, :icon, :user_id, :completed)
-  end
-
-  def step_params
-    params.require(:step).permit(:name, :checked, :project_id)
   end
 
   def require_login
