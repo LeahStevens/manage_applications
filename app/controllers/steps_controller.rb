@@ -28,7 +28,6 @@ class StepsController < ApplicationController
     respond_to do |format|
       @step.project_id = current_project.id
       if @step.save
-        render :partial => 'step', :object => @step
       end
     end
   end
@@ -37,7 +36,6 @@ class StepsController < ApplicationController
     @step = Step.find(params[:id])
     @step.destroy
     render :layout => false
-
   end
 
 

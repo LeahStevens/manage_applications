@@ -43,6 +43,7 @@ function masterFunction(){
            data: "name=" + value + "&project_id=" + projectId
       });
   document.getElementById("step").value = '';
+  location.reload();
  }
 
 
@@ -61,6 +62,8 @@ function deleteStep(){
     dataType: "json",
     data: {"_method":"delete"}
   });
+
+  location.reload();
 }
 
 
