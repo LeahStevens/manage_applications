@@ -27,13 +27,9 @@ class StepsController < ApplicationController
     @step = Step.new(step_params)
     respond_to do |format|
       @step.project_id = current_project.id
-      # if @step.save
-      #   format.html { redirect_to @project, notice: 'Project was successfully created.' }
-      #   format.json { render action: 'show', status: :created, location: @project }
-      # else
-      #   format.html { render action: 'new' }
-      #   format.json { render json: @project.errors, status: :unprocessable_entity }
-      # end
+      if @step.save
+        render :partial => 'step', :object => @step
+      end
     end
   end
 
@@ -41,6 +37,7 @@ class StepsController < ApplicationController
     @step = Step.find(params[:id])
     @step.destroy
     render :layout => false
+
   end
 
 

@@ -6,6 +6,7 @@ class ProjectsController < ActionController::Base
   def index
     @projects = Project.order(updated_at: :desc).find(:all,
                             :conditions => {:user_id => current_user.id})
+    @steps = @project.steps
   end
 
   def new

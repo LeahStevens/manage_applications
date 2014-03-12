@@ -1,4 +1,4 @@
-/*
+/*/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -23,6 +23,9 @@ p{
 form{
   width: 250px;
 }
+
+
+
 
 /*---------------------------Devise-----------------------------*/
 
@@ -145,7 +148,7 @@ body.landing{
   background-image: url('manbackground.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: rgb(168,201,255);
+  background-color: #333;
 }
 
 .landingTitle{
@@ -350,3 +353,4 @@ body.landing{
 
 
 
+*/

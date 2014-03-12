@@ -24,8 +24,7 @@ $(document).ready(initialize);
 function initialize(){
   $('#detailsButton').click(masterFunction);
   $('table').on('click', '.remove', remove);
-  // $('#submitSteps').click(submitSteps);
-  $('#deleteStepsButton').click(deleteStep);
+  $('.deleteStepsButton').click(deleteStep);
 }
 
 
@@ -43,14 +42,21 @@ function masterFunction(){
            url: 'steps/new',
            data: "name=" + value + "&project_id=" + projectId
       });
+  document.getElementById("step").value = '';
  }
 
 
 function deleteStep(){
-  var stepId = $(stepIdToDelete).data("id");
+  // console.log("button clicked");
+  // console.log(this);
+
+  var thisId = $(this).data("id");
+  // console.log(thisId);
+
+
 
   $.ajax({
-    url: "/steps/" + stepId,
+    url: "/steps/" + thisId,
     type: "post",
     dataType: "json",
     data: {"_method":"delete"}
