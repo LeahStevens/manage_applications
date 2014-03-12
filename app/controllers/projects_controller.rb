@@ -18,6 +18,11 @@ class ProjectsController < ActionController::Base
     @projects = Project.order(updated_at: :desc).find(:all,
                             :conditions => {:user_id => current_user.id})
     @project = Project.find(params[:id])
+
+
+    @steps = @project.steps
+
+
   end
 
   def completed

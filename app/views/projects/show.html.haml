@@ -18,16 +18,25 @@
   %div.projectNewDetails
     %h4 Step List
     #section
-      .row
+      .row#projectIdAddToList{:data => {:id => @project.id}}
         .small-9.columns
           %input#step{type: 'text', placeholder: 'Step'}
         .small-3.columns
           %input#detailsButton.button.tiny.round{type: 'button', value: "Add to List"}
-      .row
-        .small-9.columns
-          #section
-            %table
-              %th Steps
-              %th Done?
+      / .row
+      /   .small-9.columns
+      /     #section
+      /       %table
+      /         %th Steps
+      /         %th Done?
+
+  -if @steps
+    - @steps.each do |step|
+      .row#stepIdToDelete{:data => {:id => step.id}}
+        .small-8.columns
+          %div= step.name
+        / .small-1.columns
+        /   %input{type:'checkbox'}= step.checked
         .small-3.columns
-          %input#submitSteps.button.tiny.round{type: 'button', value: 'Save Steps'}
+          %input#deleteStepsButton.button.tiny.round{type: 'button', value: 'Delete Step'}
+

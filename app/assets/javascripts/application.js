@@ -22,19 +22,49 @@ $(document).foundation();
 $(document).ready(initialize);
 
 function initialize(){
-  $('#detailsButton').click(transferSteps);
+  $('#detailsButton').click(masterFunction);
   $('table').on('click', '.remove', remove);
-  $('#submitForm').click(submitForm);
+  // $('#submitSteps').click(submitSteps);
+  $('#deleteStepsButton').click(deleteStep);
 }
 
 
- function submitSteps() {
+function masterFunction(){
+  submitStep();
+  transferSteps();
+}
+
+ function submitStep() {
+  var value = $('#step').val();
+  var projectId = $(projectIdAddToList).data("id")
+
       $.ajax({
-           type:'POST',
+           type:'GET',
            url: 'steps/new',
-           data: {"checked": this.checked}
+           data: "name=" + value + "&project_id=" + projectId
       });
  }
+
+
+function deleteStep(){
+  var stepId = $(stepIdToDelete).data("id");
+
+  $.ajax({
+    url: "/steps/" + stepId,
+    type: "post",
+    dataType: "json",
+    data: {"_method":"delete"}
+  });
+}
+
+
+ // function submitSteps() {
+ //      $.ajax({
+ //           type:'POST',
+ //           url: 'steps/new',
+ //           data: {"checked": this.checked}
+ //      });
+ // }
 
 
 
@@ -67,6 +97,8 @@ function transferSteps(){
   $remove.append($removeEntry);
   $tr.append($stepTd, $done, $remove);
   $('table').append($tr);
+
+
 }
 
 

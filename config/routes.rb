@@ -23,7 +23,7 @@ ManageApplications::Application.routes.draw do
 
   post 'projects/:id', to:'projects#add'
 
-  get 'steps/new', to: 'steps#new'
+  get 'projects/steps/new', to: 'steps#new'
   post 'steps', to:'steps#create'
   delete 'steps/:id', to: 'steps#destroy'
 
@@ -33,10 +33,7 @@ ManageApplications::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :projects do
-    resources :steps
-  end
-
+  resources :projects
 
   # Example resource route with options:
   #   resources :products do

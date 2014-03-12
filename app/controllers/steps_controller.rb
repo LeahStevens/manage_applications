@@ -11,10 +11,17 @@ class StepsController < ApplicationController
   end
 
   def new
-    @steps = Step.find(:all,
-                            :conditions => {:project_id => current_project.id})
-    @step = Step.new
- end
+    if params[:name] && params[:project_id]
+      step = Step.new
+      step.name = params[:name]
+      step.project_id = params[:project_id]
+      step.save
+    else
+    end
+    render :layout => false
+  end
+
+
 
   def create
     @step = Step.new(step_params)
@@ -33,7 +40,7 @@ class StepsController < ApplicationController
   def destroy
     @step = Step.find(params[:id])
     @step.destroy
-    redirect_to (:back)
+    render :layout => false
   end
 
 
